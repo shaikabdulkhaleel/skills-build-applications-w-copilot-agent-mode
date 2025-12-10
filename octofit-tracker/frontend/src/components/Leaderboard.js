@@ -18,15 +18,26 @@ function Leaderboard() {
   }, []);
 
   return (
-    <div>
-      <h2>Leaderboard</h2>
-      <ul className="list-group">
-        {leaderboard.map((entry, idx) => (
-          <li key={entry.id || idx} className="list-group-item">
-            Team: {entry.team?.name || entry.team} - Points: {entry.points}
-          </li>
-        ))}
-      </ul>
+    <div className="card p-3">
+      <h2 className="card-title text-success">Leaderboard</h2>
+      <div className="table-responsive">
+        <table className="table table-striped table-bordered">
+          <thead className="table-dark">
+            <tr>
+              <th>Team</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            {leaderboard.map((entry, idx) => (
+              <tr key={entry.id || idx}>
+                <td>{entry.team?.name || entry.team}</td>
+                <td>{entry.points}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

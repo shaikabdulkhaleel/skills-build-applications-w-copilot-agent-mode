@@ -18,15 +18,24 @@ function Teams() {
   }, []);
 
   return (
-    <div>
-      <h2>Teams</h2>
-      <ul className="list-group">
-        {teams.map((team, idx) => (
-          <li key={team.id || idx} className="list-group-item">
-            {team.name}
-          </li>
-        ))}
-      </ul>
+    <div className="card p-3">
+      <h2 className="card-title text-info">Teams</h2>
+      <div className="table-responsive">
+        <table className="table table-striped table-bordered">
+          <thead className="table-dark">
+            <tr>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {teams.map((team, idx) => (
+              <tr key={team.id || idx}>
+                <td>{team.name}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

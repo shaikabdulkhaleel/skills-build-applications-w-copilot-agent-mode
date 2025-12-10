@@ -18,15 +18,28 @@ function Workouts() {
   }, []);
 
   return (
-    <div>
-      <h2>Workouts</h2>
-      <ul className="list-group">
-        {workouts.map((workout, idx) => (
-          <li key={workout.id || idx} className="list-group-item">
-            {workout.name}: {workout.description} (Suggested for: {workout.suggested_for})
-          </li>
-        ))}
-      </ul>
+    <div className="card p-3">
+      <h2 className="card-title text-secondary">Workouts</h2>
+      <div className="table-responsive">
+        <table className="table table-striped table-bordered">
+          <thead className="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Suggested For</th>
+            </tr>
+          </thead>
+          <tbody>
+            {workouts.map((workout, idx) => (
+              <tr key={workout.id || idx}>
+                <td>{workout.name}</td>
+                <td>{workout.description}</td>
+                <td>{workout.suggested_for}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

@@ -18,15 +18,28 @@ function Activities() {
   }, []);
 
   return (
-    <div>
-      <h2>Activities</h2>
-      <ul className="list-group">
-        {activities.map((activity, idx) => (
-          <li key={activity.id || idx} className="list-group-item">
-            {activity.type} - {activity.duration} min - {activity.calories} cal
-          </li>
-        ))}
-      </ul>
+    <div className="card p-3">
+      <h2 className="card-title text-primary">Activities</h2>
+      <div className="table-responsive">
+        <table className="table table-striped table-bordered">
+          <thead className="table-dark">
+            <tr>
+              <th>Type</th>
+              <th>Duration (min)</th>
+              <th>Calories</th>
+            </tr>
+          </thead>
+          <tbody>
+            {activities.map((activity, idx) => (
+              <tr key={activity.id || idx}>
+                <td>{activity.type}</td>
+                <td>{activity.duration}</td>
+                <td>{activity.calories}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

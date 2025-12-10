@@ -18,15 +18,28 @@ function Users() {
   }, []);
 
   return (
-    <div>
-      <h2>Users</h2>
-      <ul className="list-group">
-        {users.map((user, idx) => (
-          <li key={user.id || idx} className="list-group-item">
-            {user.name} ({user.email}) - Team: {user.team?.name || user.team}
-          </li>
-        ))}
-      </ul>
+    <div className="card p-3">
+      <h2 className="card-title text-warning">Users</h2>
+      <div className="table-responsive">
+        <table className="table table-striped table-bordered">
+          <thead className="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Team</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user, idx) => (
+              <tr key={user.id || idx}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.team?.name || user.team}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
